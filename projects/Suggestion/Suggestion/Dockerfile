@@ -9,17 +9,18 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["projects/Suggestion/Suggestion/Suggestion.csproj", "projects/Suggestion/Suggestion/"]
-RUN dotnet restore "./projects/Suggestion/Suggestion/Suggestion.csproj"
+COPY ["projects/Suggestion/Suggestion/SuggestionService.csproj", "projects/Suggestion/Suggestion/"]
+COPY ["shared/Domain/Domain.csproj", "shared/Domain/"]
+RUN dotnet restore "./projects/Suggestion/Suggestion/SuggestionService.csproj"
 COPY . .
 WORKDIR "/src/projects/Suggestion/Suggestion"
-RUN dotnet build "./Suggestion.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./SuggestionService.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Suggestion.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./SuggestionService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Suggestion.dll"]
+ENTRYPOINT ["dotnet", "SuggestionService.dll"]

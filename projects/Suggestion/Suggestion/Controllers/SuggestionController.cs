@@ -1,7 +1,8 @@
+using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Suggestion.Core.Services;
+using SuggestionService.Core.Services;
 
-namespace Suggestion.Controllers
+namespace SuggestionService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -16,7 +17,7 @@ namespace Suggestion.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> AddSuggestion([FromBody] Core.Entiies.Suggestion suggestion)
+        public async Task<ActionResult> AddSuggestion([FromBody] Suggestion suggestion)
         {
 
             try

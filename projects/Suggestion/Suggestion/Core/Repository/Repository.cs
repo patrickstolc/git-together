@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Suggestion.Core.Entities;
+﻿using Domain;
+using Microsoft.EntityFrameworkCore;
 
-namespace Suggestion.Core.Repository
+namespace SuggestionService.Core.Repository
 {
     public class Repository: IRepository
     {
@@ -13,7 +13,7 @@ namespace Suggestion.Core.Repository
             _options = new DbContextOptionsBuilder<RepositoryDBContext>().UseInMemoryDatabase("SuggestionDB").Options;
         }
 
-        public Entiies.Suggestion CreateSuggestion(Entiies.Suggestion suggestion)
+        public Suggestion CreateSuggestion(Suggestion suggestion)
         {
             using(var context = new RepositoryDBContext(_options,ServiceLifetime.Scoped))
             {
@@ -23,7 +23,7 @@ namespace Suggestion.Core.Repository
             }
         }
 
-        public List<Entiies.Suggestion> GetSuggestions()
+        public List<Suggestion> GetSuggestions()
         {
             using(var context = new RepositoryDBContext(_options, ServiceLifetime.Scoped))
             {

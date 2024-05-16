@@ -1,10 +1,9 @@
 ﻿
-using Microsoft.EntityFrameworkCore.Storage.Json;
+using Domain;
 using Newtonsoft.Json;
-using Suggestion.Core.Entities;
-using Suggestion.Core.Repository;
+using SuggestionService.Core.Repository;
 
-namespace Suggestion.Core.Services
+namespace SuggestionService.Core.Services
 {
     public class Service : IService
     {
@@ -22,7 +21,7 @@ namespace Suggestion.Core.Services
             _client = _httpClientFactory.CreateClient();
             _repository = repository;
         }
-        public async Task<Entiies.Suggestion> CreateSuggestion(Entiies.Suggestion suggestion)
+        public async Task<Suggestion> CreateSuggestion(Suggestion suggestion)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, rankingServiceAddress);
 
@@ -37,7 +36,7 @@ namespace Suggestion.Core.Services
                 rankingProfiles =  JsonConvert.DeserializeObject<List<RankProfile>>(result);
             }
 
-            var suggestionDTO = new Entiies.Suggestion
+            var suggestionDTO = new Suggestion
             {
                 ProfileRankings = rankingProfiles,
                 Id = suggestion.Id,
@@ -47,7 +46,7 @@ namespace Suggestion.Core.Services
             return suggestionDTO;
         }
 
-        public List<Entiies.Suggestion> GetSuggestions()
+        public List<Suggestion> GetSuggestions()
         {
             return _repository.GetSuggestions();
         }

@@ -32,10 +32,11 @@ services:
       context: .
       dockerfile: projects/TimelineService/Dockerfile
     ports:
-      - '8080:80'
+      - '8084:80'
     depends_on:
       rabbitmq:
         condition: service_healthy
+
   suggestion-service:
     image: suggestionservice
     build:
@@ -43,9 +44,6 @@ services:
       context: .
     ports:
       - '8082:80'
-    depends_on:
-      ranking-service:
-        condition: service_healthy
 
   whitelist-service:
     user: "999"

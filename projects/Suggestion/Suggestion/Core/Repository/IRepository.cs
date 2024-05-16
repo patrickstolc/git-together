@@ -6,7 +6,7 @@ namespace Suggestion.Core.Repository
     {
         public List<RankProfile> GetRankProfiles();
 
-        public Entiies.Suggestion CreateSuggestion();
+        public Entiies.Suggestion CreateSuggestion(Entiies.Suggestion);
 
         public List<Entiies.Suggestion> GetSuggestions();
 

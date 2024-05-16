@@ -13,19 +13,22 @@ namespace Suggestion.Core.Repository
             _options = new DbContextOptionsBuilder<RepositoryDBContext>().UseInMemoryDatabase("SuggestionDB").Options;
         }
 
-        public Entiies.Suggestion CreateSuggestion()
+        public Entiies.Suggestion CreateSuggestion(Entiies.Suggestion suggestion)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<RankProfile> GetRankProfiles()
-        {
-            throw new NotImplementedException();
+            using(var context = new RepositoryDBContext(_options,ServiceLifetime.Scoped))
+            {
+                context.suggestions.Add(suggestion);
+                context.SaveChanges();
+                return suggestion;
+            }
         }
 
         public List<Entiies.Suggestion> GetSuggestions()
         {
-            throw new NotImplementedException();
+            using(var context = new RepositoryDBContext(_options, ServiceLifetime.Scoped))
+            {
+                return context.suggestions.ToList();
+            }
         }
     }
 }

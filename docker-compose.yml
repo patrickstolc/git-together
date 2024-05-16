@@ -24,3 +24,5 @@ services:
         context: .
     ports:
         - 9022:80 
+    depends_on:
+        - profile-service

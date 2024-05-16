@@ -16,11 +16,11 @@ namespace DevRanker.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetRankedProfiles([FromBody]Profile profile)
+        public async Task<IActionResult> GetRankedProfiles([FromBody]Profile profile)
         {
             try
             {
-                var rankedProfiles = _rankingService.GetProfiles(profile);
+                var rankedProfiles = await _rankingService.GetProfiles(profile);
                 return Ok(rankedProfiles);
             }
             catch(Exception ex)

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "shared\Domain\Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Suggestion", "projects\Suggestion\Suggestion\Suggestion.csproj", "{35AB3134-505D-466E-9F8D-042D055DFF09}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messages", "shared\Messages\Messages.csproj", "{F1493A7F-117E-4CD3-BF99-3B18BD7FDE83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +35,15 @@ Global
 		{35AB3134-505D-466E-9F8D-042D055DFF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35AB3134-505D-466E-9F8D-042D055DFF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35AB3134-505D-466E-9F8D-042D055DFF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1493A7F-117E-4CD3-BF99-3B18BD7FDE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1493A7F-117E-4CD3-BF99-3B18BD7FDE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1493A7F-117E-4CD3-BF99-3B18BD7FDE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1493A7F-117E-4CD3-BF99-3B18BD7FDE83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2E83BB0-44BF-468E-B111-36FBAA622D13}
 	EndGlobalSection
 EndGlobal

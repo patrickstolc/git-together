@@ -6,6 +6,6 @@ namespace Suggestion.Core.Entiies
     {
         public int Id { get; set; }
         public List<RankProfile> profileRankings { get; set; }
-        public int userID { get; set; }
+        public Profile profile { get; set; }
     }
 }

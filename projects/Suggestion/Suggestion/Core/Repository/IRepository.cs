@@ -9,6 +9,5 @@ namespace Suggestion.Core.Repository
 
         public List<Entiies.Suggestion> GetSuggestions();
 
-
     }
 }

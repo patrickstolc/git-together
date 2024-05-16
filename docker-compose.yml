@@ -36,4 +36,16 @@ services:
     depends_on:
       rabbitmq:
         condition: service_healthy
-
+  whitelist-service:
+    user: "999"
+    build:
+      context: .
+      dockerfile: projects/WhitelistService/Dockerfile
+    container_name: 'whitelist-service'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    ports:
+      - '8080:8080'

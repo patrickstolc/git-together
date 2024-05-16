@@ -36,4 +36,13 @@ services:
     depends_on:
       rabbitmq:
         condition: service_healthy
+    suggestion-service:
+      image: suggestionservice
+      build:
+        dockerfile: /projects/Suggestion/Suggestion/Dockerfile
+        context: .
+      ports:
+        - '8082:80'
+      depends_on:
+        ranking-service
 

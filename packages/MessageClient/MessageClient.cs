@@ -6,6 +6,12 @@ public class MessageClient
 {
     private readonly IBus _bus;
     
+    public static MessageClient Create(string connectionString)
+    {
+        var bus = RabbitHutch.CreateBus(connectionString);
+        return new MessageClient(bus);
+    }
+    
     public MessageClient(IBus bus)
     {
         _bus = bus;

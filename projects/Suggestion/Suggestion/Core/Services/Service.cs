@@ -40,7 +40,6 @@ namespace Suggestion.Core.Services
             var suggestionDTO = new Entiies.Suggestion
             {
                 ProfileRankings = rankingProfiles,
-
                 Id = suggestion.Id,
                 userID = suggestion.userID
             };

@@ -1,12 +1,13 @@
-using WhitelistService;
+using DevRanker.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var config = builder.Configuration.GetSection("Settings").Get<Settings>();
-
-builder.Services.AddSingleton(MessageClient.MessageClient.Create(config.RabbitMqConnectionString.Value));
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IHTTPService, HTTPService>();
+builder.Services.AddScoped<IRankingService, RankingService>();
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,6 +19,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

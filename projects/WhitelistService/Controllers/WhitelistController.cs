@@ -9,6 +9,12 @@ namespace WhitelistService.Controllers;
 [Route("[controller]")]
 public class WhitelistController : ControllerBase
 {
+    private readonly MessageClient.MessageClient _messageClient;
+    public WhitelistController(MessageClient.MessageClient messageClient)
+    {
+        _messageClient = messageClient;
+    }
+    
     [HttpPost]
     public Task<Response<AddProfileResponseData>> AddProfileToWhitelist([FromBody]AddProfileRequestData request)
     {
@@ -20,7 +26,16 @@ public class WhitelistController : ControllerBase
         };
         
         // Add profile to whitelist
-        return Task.FromResult(Response<AddProfileResponseData>.Ok(new AddProfileResponseData()));
+        var response = Task.FromResult(Response<AddProfileResponseData>.Ok(new AddProfileResponseData()));
+        if (response.Result.Success)
+        {
+            _messageClient.Send(
+                new RemoveProfileMessage { UserId = request.UserId, ProfileId = request.ProfileId }, 
+                Topics.Topics.RefreshSuggestionsTopic
+            );
+        }
+
+        return response;
     }
     
     [HttpGet("{userId:int}")]

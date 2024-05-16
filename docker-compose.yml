@@ -12,6 +12,20 @@ services:
     ports:
       - '5672:5672'
       - '15672:15672'
+  profile-service:
+    build:
+        dockerfile : /projects/ProfileService/Dockerfile
+        context: .
+    ports:
+        - 9021:80
+  ranking-service:
+    build:
+        dockerfile: /projects/DevRanker/DevRanker/Dockerfile
+        context: .
+    ports:
+        - 9022:80 
+    depends_on:
+        - profile-service
   timeline-service:
     image: timelineservice
     build:
@@ -22,3 +36,4 @@ services:
     depends_on:
       rabbitmq:
         condition: service_healthy
+

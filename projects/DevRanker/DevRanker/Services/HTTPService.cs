@@ -18,7 +18,7 @@ namespace DevRanker.Services
                 HttpClient client = _clientFactory.CreateClient();
                 client.BaseAddress = new Uri(ConfigurationHelper.GetConfigValue("ProfileBaseURL"));
 
-                var request = new HttpRequestMessage(HttpMethod.Get, "");
+                var request = new HttpRequestMessage(HttpMethod.Get, "/ProfileController");
 
                 request.Content = new StringContent(JsonSerializer.Serialize(profile), Encoding.UTF8, "application/json");
                 var response = await client.SendAsync(request);

@@ -12,3 +12,10 @@ services:
     ports:
       - '5672:5672'
       - '15672:15672'
+
+  blacklist-services:
+    build: 
+      context: .
+      dockerfile: Blacklist/Blacklist/Dockerfile
+    ports:
+      - "----:8080"

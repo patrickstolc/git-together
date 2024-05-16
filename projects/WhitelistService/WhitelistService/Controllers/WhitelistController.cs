@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using WhitelistService.Core.Common;
+using WhitelistService.Core.Schemas;
 
 namespace WhitelistService.Controllers;
 
@@ -6,4 +8,10 @@ namespace WhitelistService.Controllers;
 [Route("[controller]")]
 public class WhitelistController : ControllerBase
 {
+    [HttpPost]
+    public Task<Response<AddProfileResponseData>> AddProfileToWhitelist([FromBody]AddProfileRequestData request)
+    {
+        // Add profile to whitelist
+        return Task.FromResult(Response<AddProfileResponseData>.Ok(new AddProfileResponseData()));
+    }
 }

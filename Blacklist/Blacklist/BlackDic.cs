@@ -1,4 +1,4 @@
-﻿namespace Blacklist
+﻿namespace BlackDic
 {
     public static class BlackDic
     {

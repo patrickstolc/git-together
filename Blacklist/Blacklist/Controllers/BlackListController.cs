@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace Blacklist.Controllers
+namespace BlackDic.Controllers
 {
     [ApiController]
     [Route("[Controller]")]
@@ -50,10 +50,10 @@ namespace Blacklist.Controllers
                     return Ok();
                 } catch (Exception ex)
                 {
-                    return BadRequest("Profile is not in the Black Dictionary");
+                    return BadRequest("Profile is not in the BlackList");
                 }
             }
-            return BadRequest("The User does not exist in our Black Dictionary");
+            return BadRequest("The User does not exist in our BlackList");
         }
     }
 }

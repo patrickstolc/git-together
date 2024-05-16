@@ -12,6 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\packages\MessageClient\MessageClient.csproj" />
+      <ProjectReference Include="..\..\packages\Topics\Topics.csproj" />
       <ProjectReference Include="..\..\shared\Messages\Messages.csproj" />
     </ItemGroup>
 

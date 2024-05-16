@@ -1,14 +1,15 @@
-using WhitelistService;
+using EasyNetQ;
+using Messaging;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var config = builder.Configuration.GetSection("Settings").Get<Settings>();
 
-builder.Services.AddSingleton(MessageClient.MessageClient.Create(config.RabbitMqConnectionString.Value));
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton(new MessageClient(RabbitHutch.CreateBus(builder.Configuration.GetConnectionString("RabbitMQ"))));
 
 var app = builder.Build();
 
@@ -18,6 +19,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

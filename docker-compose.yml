@@ -14,13 +14,13 @@ services:
       - '15672:15672'
   profile-service:
     build:
-        dockerfile : /projects/ProfileService/Dockerfile
+        dockerfile : projects/ProfileService/Dockerfile
         context: .
     ports:
         - 9021:80
   ranking-service:
     build:
-        dockerfile: /projects/DevRanker/DevRanker/Dockerfile
+        dockerfile: projects/DevRanker/DevRanker/Dockerfile
         context: .
     ports:
         - 9022:80 
@@ -30,22 +30,23 @@ services:
     image: timelineservice
     build:
       context: .
-      dockerfile: ./projects/TimelineService/Dockerfile
+      dockerfile: projects/TimelineService/Dockerfile
     ports:
       - '8080:80'
     depends_on:
       rabbitmq:
         condition: service_healthy
-   suggestion-service:
-      image: suggestionservice
-      build:
-        dockerfile: /projects/Suggestion/Suggestion/Dockerfile
-        context: .
-      ports:
-        - '8082:80'
-      depends_on:
-        ranking-service
-        
+  suggestion-service:
+    image: suggestionservice
+    build:
+      dockerfile: projects/Suggestion/Suggestion/Dockerfile
+      context: .
+    ports:
+      - '8082:80'
+    depends_on:
+      ranking-service:
+        condition: service_healthy
+
   whitelist-service:
     user: "999"
     build:

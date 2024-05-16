@@ -7,7 +7,7 @@ namespace Suggestion.Core.Services
 
         public List<Entiies.Suggestion> GetSuggestions();
 
-        public Entiies.Suggestion CreateSuggestion(Entiies.Suggestion);
+        public Task<Entiies.Suggestion> CreateSuggestion(Entiies.Suggestion);
 
 
     }

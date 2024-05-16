@@ -1,5 +1,5 @@
-using Suggestion.Core.Repository;
-using Suggestion.Core.Services;
+using SuggestionService.Core.Repository;
+using SuggestionService.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

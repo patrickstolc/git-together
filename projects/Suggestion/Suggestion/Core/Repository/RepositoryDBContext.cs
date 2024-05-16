@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Suggestion.Core.Entiies;
+﻿using Domain;
+using Microsoft.EntityFrameworkCore;
 
-namespace Suggestion.Core.Repository
+namespace SuggestionService.Core.Repository
 {
     public class RepositoryDBContext: DbContext
     {
@@ -12,11 +12,11 @@ namespace Suggestion.Core.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Entiies.Suggestion>().Property(s => s.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Suggestion>().Property(s => s.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Entiies.Suggestion>().HasKey(s => s.Id);
+            modelBuilder.Entity<Suggestion>().HasKey(s => s.Id);
         }
 
-        public DbSet<Entiies.Suggestion> suggestions { get; set; }
+        public DbSet<Suggestion> suggestions { get; set; }
     }
 }

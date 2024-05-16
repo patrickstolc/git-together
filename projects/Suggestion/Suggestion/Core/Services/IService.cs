@@ -1,13 +1,13 @@
-﻿using Suggestion.Core.Entiies;
+﻿using Domain;
 
-namespace Suggestion.Core.Services
+namespace SuggestionService.Core.Services
 {
     public interface IService
     {
 
-        public List<Entiies.Suggestion> GetSuggestions();
+        public List<Suggestion> GetSuggestions();
 
-        public Task<Entiies.Suggestion> CreateSuggestion(Entiies.Suggestion);
+        public Task<Suggestion> CreateSuggestion(Suggestion suggestion);
 
 
     }

@@ -4,7 +4,6 @@ namespace Suggestion.Core.Repository
 {
     public interface IRepository
     {
-        public List<RankProfile> GetRankProfiles();
 
         public Entiies.Suggestion CreateSuggestion(Entiies.Suggestion);
 

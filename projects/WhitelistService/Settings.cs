@@ -2,10 +2,10 @@ namespace WhitelistService;
 
 public sealed class ConnectionString
 {
-    public string Value { get; }
+    public string Value { get; set; }
 }
 
-public class Settings
+public sealed class Settings
 {
     public ConnectionString RabbitMqConnectionString { get; set; }
 }

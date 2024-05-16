@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using WhitelistService;
 
 var builder = WebApplication.CreateBuilder(args);

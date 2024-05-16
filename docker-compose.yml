@@ -26,3 +26,14 @@ services:
         - 9022:80 
     depends_on:
         - profile-service
+  timeline-service:
+    image: timelineservice
+    build:
+      context: .
+      dockerfile: ./projects/TimelineService/Dockerfile
+    ports:
+      - '8080:80'
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+

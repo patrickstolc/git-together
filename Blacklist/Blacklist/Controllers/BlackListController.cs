@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Messaging;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace Blacklist.Controllers
@@ -7,6 +8,12 @@ namespace Blacklist.Controllers
     [Route("[Controller]")]
     public class BlackListController : ControllerBase
     {
+        private readonly MessageClient _messageClient;
+        BlackListController(MessageClient messageClient)
+        {
+            _messageClient = messageClient;
+        }
+
         [HttpPost]
         public IActionResult AddProfileToBlackDic(int profileID, int UserID)
         {
@@ -14,6 +21,7 @@ namespace Blacklist.Controllers
             {
                 Console.WriteLine($"User {UserID} does not have a blacklist creating a new one");
                 BlackDic.blackDic.Add(UserID, new List<int>());
+                _messageClient.Send<int>(profileID, "BlockedPersonAdded");
                 Console.WriteLine($"BlackList created for {UserID}");
             }
 
@@ -38,6 +46,7 @@ namespace Blacklist.Controllers
                 {
                     Console.WriteLine($"Removing {profileID} from {UserID}'s blacklist");
                     BlackDic.blackDic[UserID].Remove(profileID);
+                    _messageClient.Send<int>(profileID, "BlockedPersonRemoved");
                     return Ok();
                 } catch (Exception ex)
                 {

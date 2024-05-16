@@ -1,10 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhitelistService", "projects\WhitelistService\WhitelistService.csproj", "{788B9CC5-8075-41F6-A507-5702D14145CA}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhitelistService", "projects\WhitelistService\WhitelistService.csproj", "{788B9CC5-8075-41F6-A507-5702D14145CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileService", "projects\ProfileService\ProfileService.csproj", "{38AD429E-545D-4804-B098-7C0C7CB4DFAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileService", "projects\ProfileService\ProfileService.csproj", "{38AD429E-545D-4804-B098-7C0C7CB4DFAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "shared\Domain\Domain.csproj", "{C9060E6A-6B7C-4638-8C97-7A8F888D7E13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "shared\Domain\Domain.csproj", "{C9060E6A-6B7C-4638-8C97-7A8F888D7E13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Suggestion", "projects\Suggestion\Suggestion\Suggestion.csproj", "{35AB3134-505D-466E-9F8D-042D055DFF09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,12 @@ Global
 		{C9060E6A-6B7C-4638-8C97-7A8F888D7E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9060E6A-6B7C-4638-8C97-7A8F888D7E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9060E6A-6B7C-4638-8C97-7A8F888D7E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35AB3134-505D-466E-9F8D-042D055DFF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35AB3134-505D-466E-9F8D-042D055DFF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35AB3134-505D-466E-9F8D-042D055DFF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35AB3134-505D-466E-9F8D-042D055DFF09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

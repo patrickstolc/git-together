@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhitelistService", "git-together\projects\WhitelistService\WhitelistService\WhitelistService.csproj", "{788B9CC5-8075-41F6-A507-5702D14145CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhitelistService", "projects\WhitelistService\WhitelistService\WhitelistService.csproj", "{788B9CC5-8075-41F6-A507-5702D14145CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
